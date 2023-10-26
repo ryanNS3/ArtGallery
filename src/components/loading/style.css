@@ -1,0 +1,23 @@
+.box-loading{
+    display: flex;
+    margin-bottom: 10rem;
+    place-content: center;
+}
+
+
+.loading{
+    animation: loadingAnimate 1s infinite;
+    border: 6px solid #e333;
+    /* #f1b63f */
+    border-radius: 50%;
+    border-top-color:  #f1b63f ;
+    width: 40px;
+    height: 40px;
+
+}
+
+@keyframes loadingAnimate{
+    to{
+        transform: rotate(1turn);
+    }
+}

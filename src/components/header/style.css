@@ -1,0 +1,363 @@
+
+
+
+.box-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+    margin-left: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+
+.swiper {
+    max-width: 550px;
+    height: 88%;
+    grid-column: 1/2;
+  }
+  
+  .swiper-slide {
+    max-width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 85%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+
+
+.decoradorObra{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border-radius: 10px;
+    border: 3px solid #6F4300;
+    z-index: -1;
+    width: 90% ;
+    height: 72%;
+    box-sizing: border-box;
+}
+
+.nomeObra{
+    position: relative;
+    background-color: #3a3a3a;
+    /* border: solid 3px #ffffff; */
+    padding: 1rem;
+    top: -8%;
+    color: #ffffff;
+    z-index: 99999;
+}
+
+.section-titulo{
+    display: flex;
+    grid-column: 2/-1;
+    flex-direction: column;
+    max-height: 100%;
+    max-width: 100%;
+    gap: 25px;
+
+}
+
+.section-titulo h1{
+    position: relative;
+    color: #000;
+    font-family: 'Libre Baskerville';
+    font-size: 5.1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+   
+}
+
+.section-titulo h1 span:first-child::after{
+    content: "";
+    position: absolute;
+    background-color: #FFA41D;
+    width: 0px;
+    height: 0px;
+    z-index: -999;
+    top: 55px ;
+    right: 0px;
+    animation: animacaoDecorador 0.5s forwards;
+
+}
+
+.section-titulo h1 span:first-child{
+    position: relative;
+    background-image: url("../../assets/grupo-Marcador.svg");
+    background-size: 220px 110px;
+    background-repeat: no-repeat;
+}
+
+
+.section-titulo h1 span:last-child{
+    color: #FFD390;
+}
+
+.tema-site{
+    background-color: #FFD390;
+    place-self : start;
+    border-radius: 10px; 
+}
+
+.tema-site p{
+    display: flex ;
+    padding: 0.3rem 1rem;
+    margin: 0;
+    color: #704300;
+
+    font-family: 'Libre Baskerville';
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+
+.button-movimentos{
+    display: flex;
+    position: relative;
+    margin-top: 1rem;
+    gap: 1rem;
+    border: 0;
+    max-width: 30%;
+    
+}
+
+.link-movimentos{
+    position: relative;
+    padding: 0px;
+}
+
+.decoradorx::after{
+    content: "";
+ 
+    width: 14.5%;
+    height: 4px;
+    left: -1px;
+    top: 3px;
+    background-color: #000;
+    position: absolute;
+    transition: ease-in-out 0.6s;
+    
+}
+
+.decoradorx::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 13%;
+    height: 4px;
+    left: 242px;
+    background-color: #000000;
+    transition: ease-in-out 0.6s;
+    
+}
+
+.decoradory::after{
+    content: "";
+    position: absolute;
+    width: 1.5%;
+    height: 30px;
+    background-color: #000;
+    left: 275px;
+    top: 26px;
+    transition: ease-in-out 0.6s;
+    
+}
+
+.decoradory::before{
+    content: "";
+    position: absolute;
+    width: 1.5%;
+    height: 30px;
+    background-color: #000000;
+    left: -2px;
+    transition: ease-in-out 0.6s;
+
+}
+
+
+.decorador-button-movimentos{
+    display: block;
+    position: absolute;
+    width: 321px;
+    height: 70px;
+    border: 2px solid #000;
+    top: -6px;
+    left: 100px;
+}
+
+.link-movimentos {
+    /* place-self: start; */
+    padding: 0.3rem 0.5rem;
+    color: #704300;
+    font-family: 'Poppins';
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+.button-movimentos:hover{
+    .link-movimentos{
+        background-color: #f3f3f3;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        
+    }
+    .decoradorx::after{
+        width: 100%;
+        left: 1px;
+    }
+
+    .decoradorx::before{
+        width: 100%;
+        left: 1px;
+    }
+
+    .decoradory::after{
+        height: 53.4px;
+        top: 3.5px
+        
+    }
+    .decoradory::before{
+        height: 53.4px;
+        top: 3.5px;
+
+    }
+
+}
+
+@keyframes animacaoDecorador{
+
+    from{
+        left : 6px;
+        width: 0%;
+        height: 0%;
+       
+
+    }
+
+
+    to{
+        left : 6px;
+        width: 100%;
+        height: 35%;
+        top: 50%
+
+    }
+}
+
+
+
+/* responsivo */
+
+
+@media (min-width:1800px){
+    .section-titulo h1{
+        font-size: 8rem;
+        transition: 0.6s;     
+    }
+    .section-titulo h1 span:first-child{
+        background-size: 355px 170px;  
+    }
+
+
+   
+
+}
+
+@media(min-width:1500px){
+    .section-titulo h1{
+        font-size: 7rem;
+        transition: 0.4s;     
+    }
+
+    .section-titulo h1 span:first-child{
+        background-size: 270px 130px;
+       
+    }
+    
+}
+
+@media(max-width: 1000px){
+    
+    .box-header{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .section-titulo{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .section-titulo h1{
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        transition: 0.4s;     
+    }
+    
+    .section-titulo h1 span:first-child{
+        background-size: 350px 500px;
+       
+    }
+    
+    
+    .swiper {
+        max-width: 550px;
+        height: 90%;
+        grid-column: 1/2;
+        margin-top: 1rem;
+    }
+    
+    .section-titulo h1 span:first-child{
+        background-size: 138px 68px;
+        
+    }
+    
+}
+
+
+@media(max-width: 590px){
+    .swiper {
+        max-width: 250px;
+        height: 90%;
+        grid-column: 1/2;
+        margin-top: 1rem;
+        justify-content: start;
+    }
+    .section-titulo h1{
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        transition: 0.4s;     
+    }
+       
+    .section-titulo h1 span:first-child{
+        background-size: 135px 60px;
+           
+    }
+    .nomeObra{
+        font-size: 0.5rem;
+    }
+        
+    
+    
+
+}

@@ -1,0 +1,37 @@
+.boxErro{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+.titulo-erro{
+    text-align: center;
+    font-size: 3rem;
+    
+}
+
+.titulo-erro span{
+    background-color: brown;
+    padding: 0.5rem;
+}
+.boxErro div img{
+    max-width: 90%;
+}
+
+.boxErro div p{
+    font-size: 1.5rem;
+}
+
+.botao-erro{
+    margin-top: 2rem;
+    color: rgb(111, 76, 0);
+    font-size: 1.3rem;
+    text-decoration: underline transparent 0px;
+    padding: 0rem 1rem;
+}
+
+.botao-erro:hover{
+    text-decoration: underline rgb(172, 129, 10) 3px;
+    transition: 0.6s ease-in-out;
+    
+}

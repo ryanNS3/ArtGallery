@@ -1,0 +1,182 @@
+section{
+    border: 0;
+    padding: 0;
+}
+
+
+.box-personalidades{
+    display: flex;
+    position: relative;
+    margin-bottom: 5rem;
+    max-width: 80%;
+    
+
+}
+
+
+.titulo-perso{
+    position: relative;
+    padding: 8.8rem 2.8rem;
+    background-color: #282828;
+    /* propreidades iniciais para a animação */
+    width: 0%;
+    opacity: 0;
+    animation-name: animacaotitle;
+    animation-duration: 0.8s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+   
+}
+
+
+
+.titulo-perso h2{
+    color: #FFF;
+    font-family: Libre Baskerville;
+    font-size: 2.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   
+}
+.linha-deco{
+    position: absolute;
+    top: 55%;
+}
+
+.circulo-deco{
+    position: absolute;
+    top: 28%;
+    left: 7px;
+
+}
+
+.carroussel{
+    cursor: grab;
+    overflow: hidden;
+    position: absolute;
+    background-color: #4E4E4E;
+    width: 75%;
+    height: 90%;
+    left: 50%;
+    top: 20px;
+    transform: translateX(50px);
+    opacity: 0;
+    animation-name: animacaoCarroussel;
+    animation-duration: 0.3s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    
+}
+
+.innerCarroussel{
+    display: flex;
+    justify-items: center;
+    margin-left: 2.8rem;
+   
+}
+
+.item{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    min-height: 210px;
+    min-width: 210px;
+    padding: 1rem;
+    justify-self: center;
+
+   
+}
+
+.item img{
+   
+
+    width: 142px;
+    height: 142.095px;
+    border: 7px solid #a1a1a1;
+    justify-self: center;
+    border-radius: 100%;
+    pointer-events: none;
+   
+    
+    
+}
+
+
+.nomeArtista::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 44px;
+    background-color: #2F2F2F;
+    left: 90px;
+    top: 158px;
+}
+
+
+.nomeArtista{
+    color: #d7d7d7;
+    background-color: #606060;
+    padding: 0.2rem;
+    max-width: 180px;
+    font-size: 1.2rem;
+    margin-top: 2.8rem;
+    text-align: center;
+    
+}
+
+
+/* responsvidade */
+
+@media(max-width: 950px){
+    .box-personalidades{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 2rem;
+        position: static;
+        max-width: 100%;
+        
+    }
+    .titulo-perso{
+        width: 70%;
+        padding: 1rem;
+    }
+    .linha-deco{
+        display: none;
+    }
+
+    .titulo-perso h2{
+        font-size: 1.8rem;
+    }
+    .circulo-deco{
+        display: none;
+       
+    }
+    .circulo-deco img{
+        width: 80%;
+        height: 25%;
+    }
+    .carroussel{
+       position: static; 
+       width: 100%;
+       height: 80%;
+       
+    }
+}
+
+@keyframes animacaotitle{
+    to{
+        width: 65%;
+        opacity: 1;
+    }
+}
+
+@keyframes animacaoCarroussel{
+    to{
+        transform: initial;
+        opacity: 1;
+    }
+}
+

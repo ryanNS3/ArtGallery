@@ -108,16 +108,16 @@ export default function Moviment() {
                             <article className='descricao pt-5 items-center md:m-0  md:pt-10 md:px-5 ' >
 
                                 <div className='decorador-descri w-8 h-4 relative md:w-16 md:h-6'>
-                                    <h3 className='text-lg md:text-3xl absolute bottom-[.5px]'>Descrição</h3>
+                                    <h3 className='text-lg  mt-8 text-3xl absolute bottom-[.5px]'>Descrição</h3>
                                 </div>
 
                                 {/* text-xs mt-5 w-72 bg-orange-200 md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl pl-6 pr-6 pt-3 pb-3  */}
-                                <p className='text-xs mt-5 w-72 md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl pl-6 pr-6 pt-3 pb-3  descricao-movi w-full'>{dados.dados[indice].descricaoMovimento}</p>
+                                <p className='text-md mt-5 w-72 md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl pl-6 pr-6 pt-3 pb-3  descricao-movi w-full'>{dados.dados[indice].descricaoMovimento}</p>
                             </article>
 
                             <div className='btns flex md:gap-96	 sm:gap-12 gap-4'>
-                                <div className='w-12 h-5 my-6 border-2 ml-2 border-orange-300 rounded hover:bg-orange-100 md:w-20 md:h-12'>
-                                    <button className="w-12 h-5 ml-1 mt-1 bg-white border-2 border-orange-300 rounded align-middle hover:bg-orange-100 md:w-20 md:h-12" onClick={() => pass('-')} type="button">
+                                <div className=' my-6 border-2 ml-2 border-orange-300 rounded hover:bg-orange-100 w-20 h-12'>
+                                    <button className="ml-1 mt-1 bg-white border-2 border-orange-300 rounded align-middle hover:bg-orange-100 w-20 h-12" onClick={() => pass('-')} type="button">
                                         <img
                                             className='w-3 m-auto rotate-180'
                                             src={seta}
@@ -127,8 +127,8 @@ export default function Moviment() {
 
                                 </div>
 
-                                <div className='w-12 h-5 my-6 border-2 mr-3 border-orange-300 rounded  hover:bg-orange-100 md:w-20 md:h-12'>
-                                    <button className="w-12 h-5 ml-1 mt-1 bg-white border-2 border-orange-300 rounded align-middle hover:bg-orange-100 md:w-20 md:h-12" onClick={() => pass('+')} type="button">
+                                <div className=' my-6 border-2 mr-3 border-orange-300 rounded  hover:bg-orange-100 w-20 h-12'>
+                                    <button className=" ml-1 mt-1 bg-white border-2 border-orange-300 rounded align-middle hover:bg-orange-100 w-20 h-12" onClick={() => pass('+')} type="button">
                                         <img
                                             className='w-3 m-auto'
                                             src={seta}

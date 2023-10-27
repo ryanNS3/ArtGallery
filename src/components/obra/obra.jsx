@@ -103,14 +103,14 @@ const Obra = () => {
                                 />
                             </div>
                             
-                            <p className='text-md md:text-2xl'>{indice.fk_nomeArtista}</p>
-                            <p className='border-2 border-orange-300 rounded-md p-2  md:text-2xl self-center justify-self-end'>{indice.fk_nomeMovimento}</p>
-                            <p className= 'border-2 border-orange-300 rounded-md p-2 text-md md:text-2xl self-center justify-self-end'>{indice.ano}</p>
+                            <p className='text-md '>{indice.fk_nomeArtista}</p>
+                            <p className='border-2 border-orange-300 rounded-md p-2 self-center justify-self-end'>{indice.fk_nomeMovimento}</p>
+                            <p className= 'border-2 border-orange-300 rounded-md p-2 text-md  self-center justify-self-end'>{indice.ano}</p>
                         </div>
                         <div className='w-8 h-4 bg-orange-300 relative mt-10 md:w-16 md:h-6'>
-                            <h2 className='text-lg md:text-3xl absolute bottom-[.5px]'>Descrição</h2>
+                            <h2 className='text-lg text-3xl absolute bottom-[.5px]'>Descrição</h2>
                         </div>
-                        <p className='text-sm mt-5 w-72  md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
+                        <p className='text-md mt-5 w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
                         <button onClick={handleOpen} className="adicionarComentario"><img src={adicionarComent} alt="Adiconar comenário"/> <p>Comentário</p></button>
                         <Modal
                         open={abrir}
@@ -165,7 +165,7 @@ const Obra = () => {
 {/* comentarios inseridos */}
                 <article className="box-titulo-coment">
                     <img src={comentarios}/>
-                    <h2 className="titulo-coment">Comentarios</h2>
+                    <h2 className="titulo-coment">Comentários</h2>
 
                 </article>
 
@@ -206,16 +206,7 @@ const Obra = () => {
                         </section>
                       
                     </motion.section>
-                    <motion.section className="comentario">
-                        <div className="nome-coment">
-                            <h4 >Nome</h4>
-                            <div>5/5</div>
-                        </div>
-
-                        <section className="txt-coment">
-                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        </section>
-                    </motion.section>
+                  
 
                 </motion.article>
 

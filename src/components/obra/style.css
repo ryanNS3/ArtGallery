@@ -314,7 +314,7 @@
     }
 }
 .box-titulo-coment{
-    margin-top: 3rem;
+    margin-top: 8rem;
     display: flex;
     gap: 0.5rem;
 }
@@ -338,12 +338,16 @@
     background-color: #FFD390;
 }
 
+.box-coments{
+    width: 100vw;
+}
+
 .coments{
     cursor: grab;
     overflow: hidden;
     position: absolute;
     background-color: #4E4E4E;
-    width: 85%;
+    width: 100%;
     height: 90%;
     left: 50%;
     top: 20px;
@@ -351,17 +355,16 @@
 }
 .innerComensts{
     display: flex;
-    width: 100%;
-    gap: 3rem;
+    gap: 3.5rem;
     justify-items: center;
     margin-left: .8rem;
 }
 .comentario{
   
-   width: 700px;
+    width: 700px;
     flex-direction: column;
-  
-    max-height: 100%;
+    overflow-y: scroll;
+    max-height: 300px;
     padding: 1.5rem;
     color: white;
     background-color: #2F2F2F;
@@ -387,6 +390,7 @@
 
 .txt-coment p{
     max-width: 100%;
+    color: #ffffff80;
     word-break: break-all;
     text-wrap:wrap;
 }
@@ -406,8 +410,27 @@ body::-webkit-scrollbar {
 
 
 
+.comentario::-webkit-scrollbar {
+    width: 8px;  
+    border-radius: 5px;             /* width of the entire scrollbar */
+}
+
+.comentario::-webkit-scrollbar-track {
+     
+    background: rgb(255, 255, 255);        /* color of the tracking area */
+  }
+  
+  .comentario::-webkit-scrollbar-thumb {
+    background-color: #646464; 
+    border-radius: 20px;       
+    border-radius: 8px solid rgb(65, 65, 65);  /* creates padding around scroll thumb */
+  }
+
+
+
 .inner-modal::-webkit-scrollbar {
-    width: 8px;               /* width of the entire scrollbar */
+    width: 8px;  
+    border-radius: 5px;             /* width of the entire scrollbar */
   }
   
   .inner-modal::-webkit-scrollbar-track {
@@ -417,7 +440,7 @@ body::-webkit-scrollbar {
   .inner-modal::-webkit-scrollbar-thumb {
     background-color: #646464;    /* color of the scroll thumb */
     /* border-radius: 20px;       roundness of the scroll thumb */
-    border-radius: 3px solid rgb(65, 65, 65);  /* creates padding around scroll thumb */
+    border-radius: 5px solid rgb(65, 65, 65);  /* creates padding around scroll thumb */
   }
 
 
@@ -434,5 +457,8 @@ body::-webkit-scrollbar {
 @media(max-width: 930px){
     .innerComensts{
         flex-wrap: wrap;
+    }
+    .inner-modal{
+        width: 100%;
     }
 }

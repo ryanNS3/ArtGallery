@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import './style.css';
+import "../moviment/style.css"
 import seta from "../../assets/seta.png"
 import informacao from "../../assets/informacoes.png"
 

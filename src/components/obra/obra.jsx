@@ -16,7 +16,7 @@ import adicionarComent from "../../assets/adicionarComent.svg"
 import seta from "../../assets/seta.png"
 
 
-import "../Obra/style.css"
+import "../obra/style.css"
 const Obra = () => {
 
     // formulário
@@ -57,41 +57,41 @@ const Obra = () => {
         return (
 
             <main className='corpo  animacaoEsquerda'>
-                <section className="">
+                <section className="grid md:grid-cols-3 mb-10 justify-between">
                     <Link to={"/"} aria-label="botão-voltar" className="button-home relative rounded-xl w-10 border-orange-300  justify-self-start self-center">
                         <img className=" rotate-180 w-10 " src={seta}  alt="seta"/>
                     </Link>
-                    <h1 className=''>{dados.item}</h1>
+                    <h1 className='text-5xl pl-1 relative titulo-obra col-span-2'>{dados.item}</h1>
 
                 </section>
 
-                <div className='' >
+                <div className='gap-4 lg:grid lg:grid-cols-2' >
 
-                    <div className=''>
-                        <div className=''>
+                    <div className='Imagens md:grid mb-8 sm:mb-0'>
+                        <div className='ml-4 relative w-68 h-[400px] mt-5 rounded md:w-full md:h-[600px] decorador-obra'>
                             <img id="obra" className="rounded w-full" src={indice.linkFoto} alt={indice.nomeObra} />
                         </div>
                     </div>
 
-                    <div className='descricao '>
+                    <div className='descricao  pt-5 items-center md:m-0 md:pt-10 md:px-5'>
 
-                        <div className=''>
-                            <div className=''>
+                        <div className='flex items-center gap-8	flex-wrap sm:flex-nowrap'>
+                            <div className='w-12 h-12 rounded-full bg-gray-500 relative md:w-16 md:h-16'>
                                 <img
-                                    className=''
+                                    className='w-12 h-12 rounded-full justify-self-start absolute top-2 left-2 md:w-16 md:h-16'
                                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx4PGyba3BR8tRfKdfHPoYo-2C6rPO8vWeTCMBo6TTfy02956e'
                                     alt=''
                                 />
                             </div>
                             
-                            <p className=''>{indice.fk_nomeArtista}</p>
-                            <p className=''>{indice.fk_nomeMovimento}</p>
-                            <p className= ''>{indice.ano}</p>
+                            <p className='text-md md:text-2xl'>{indice.fk_nomeArtista}</p>
+                            <p className='border-2 border-orange-300 rounded-md p-2  md:text-2xl self-center justify-self-end'>{indice.fk_nomeMovimento}</p>
+                            <p className= 'border-2 border-orange-300 rounded-md p-2 text-md md:text-2xl self-center justify-self-end'>{indice.ano}</p>
                         </div>
-                        <div className=''>
-                            <h2 className=''>Descrição</h2>
+                        <div className='w-8 h-4 bg-orange-300 relative mt-10 md:w-16 md:h-6'>
+                            <h2 className='text-lg md:text-3xl absolute bottom-[.5px]'>Descrição</h2>
                         </div>
-                        <p className=''>{indice.descricao}</p>
+                        <p className='text-xs mt-5 w-72  md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
                         <button onClick={handleOpen} className="adicionarComentario"><img src={adicionarComent} alt="Adiconar comenário"/> <p>Comentário</p></button>
                         <Modal
                         open={abrir}
@@ -128,7 +128,7 @@ const Obra = () => {
                                 <label htmlFor="comentario"></label>
                                 <input className="textForm" type="text" placeholder="Expresse sua opinião aqui" id="comentario" value={comentario} onChange={(event) => setComentario(event.target.value)} />
                                 <button className="botao-box">
-                                    <button className="botao-enviar">Enviar
+                                    <button className="botao-enviar" onClick={handleClick}>Enviar
                                         <span className="seta-enviar"></span>
                                     </button>
 

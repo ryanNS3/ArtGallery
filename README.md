@@ -37,7 +37,7 @@ Site feito em React + Vite , trazendo consumo de API, o site é uma exposição 
 
  - [Documentação da Api utilizada](https://github.com/WevertonSPWOS/api-obrasArtes)
  - [Documentação oficial Vite](https://vitejs.dev/guide/)
-- [Documentação deploy Vite in Vercel](https://vercel.com/docs/frameworks/vite)
+- [Documentação deploy Vite on Vercel](https://vercel.com/docs/frameworks/vite)
 
 
 ## Observações

@@ -1,5 +1,5 @@
 
-# Art Gallery
+#   Art Gallery
 
 Site feito em React + Vite , trazendo consumo de API, o site é uma exposição de Obras de Arte de diferentes autores e movimentos! Os dados podem não estar 100% corretos, utilize apenas como maneira didática.
 

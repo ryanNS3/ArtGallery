@@ -1,8 +1,53 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Art Gallery
 
-Currently, two official plugins are available:
+Site feito em React + Vite , trazendo consumo de API, o site é uma exposição de Obras de Arte de diferentes autores e movimentos! Os dados podem não estar 100% corretos, utilize apenas como maneira didática.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+## Link Oficial do Deploy
+
+[Link Vercel](https://art-gallery-5dgm.vercel.app/)
+
+
+
+
+## Instalação / Local Host
+
+```bash
+  npm install
+```
+
+```bash
+  npm run build
+```
+    
+```bash
+  npm run dev
+```
+## Stack utilizada
+
+**Front-end:** React, Vite, TailwindCSS, Framer Motion, Swiper, Material io
+
+**Back-end:** Axios
+
+
+## Referências
+
+ - [Documentação da Api utilizada](https://github.com/WevertonSPWOS/api-obrasArtes)
+ - [Documentação oficial Vite](https://vitejs.dev/guide/)
+- [Documentação deploy Vite in Vercel](https://vercel.com/docs/frameworks/vite)
+
+
+## Observações
+
+O site é um objeto de estudo, podem conter alguns erros. Verifique se a API ainda está online em : [LinkApi](https://rapidapi.com/WevertonSPWOS/api/api-obraartes).
+
+## Autores
+
+- [Ryan](https://github.com/ryanNS3/)
+- [Rodrigo](https://github.com/Rodriguou)
+- [Weverton](https://github.com/WevertonSPWOS/)
+- [Eloisa](https://github.com/eloisalaurentino)
+- [Marcos](https://github.com/gitmvfs/)

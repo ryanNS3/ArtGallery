@@ -16,7 +16,7 @@ import adicionarComent from "../../assets/adicionarComent.svg"
 import seta from "../../assets/seta.png"
 
 
-import "./style.css"
+import "../Obra/style.css"
 const Obra = () => {
 
     // formulário

@@ -1,8 +1,18 @@
 
 .box-error{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    margin-bottom: 5rem;
+}
+#titulo-erro{
+    font-size: 2.3rem;
 }
 .img-erro{
     width: 85%;
+    height: 50%;
+}
+
+.aguarda{
+    margin-top: 3rem;
 }

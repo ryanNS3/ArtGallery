@@ -1,13 +1,25 @@
 import React from "react";
 import ilustracaoErro from "../../assets/erroImg.svg"
 import "./styleError.css"
+import Loading from "../loading/loading";
 
 const Erro = () =>{
     return(
-        <section className="animacaoEsquerda box-error" aria-labelledby="titulo-erro">
-            <h1 id="titulo-erro">Ocorreu algum erro com os nossos serviços, retornaremos em breve</h1>
-            <img src={ilustracaoErro} alt="ilsutração de erro " className="img-erro"/>
-        </section>
+        <article>
+            <section className="animacaoEsquerda box-error" aria-labelledby="titulo-erro">
+                <img src={ilustracaoErro} alt="ilsutração de erro " className="img-erro"/>
+                <div>
+                <h1 id="titulo-erro">Error </h1>
+                    <p>Ocorreu algum ao carregar as informações,retornaremos em breve.</p>
+                    <div className="aguarda">
+                        Aguardando... <Loading />
+
+                    </div>
+
+                </div>
+            </section>
+
+        </article>
     )
 }
 

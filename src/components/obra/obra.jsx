@@ -6,42 +6,61 @@ import { GlobalPerson } from "../../context/globalPerson";
 
 // imports modal
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
+
+// importando o motion
+import { motion} from "framer-motion";
+
+
 import sair from "../../assets/sair.svg"
 import adicionarComent from "../../assets/adicionarComent.svg"
+import comentarios from "../../assets/comentarios.svg"
 // importando imgs
 import seta from "../../assets/seta.png"
 
-
 import "../obra/style.css"
 const Obra = () => {
+    const parametros = useParams()
 
     // formulário
     const [nome,setNome] = React.useState("");
     const [nota,setNota] = React.useState("");
     const [comentario,setComentario] = React.useState("");
 
+    // contador localhost
+    const [cont,setCont] = React.useState(0)
 
     const [abrir, setAbrir] = React.useState(false);
     const handleOpen = () => setAbrir(true);
     const handleClose = () => setAbrir(false);
   
-    const refcoment = useRef()
-
     const dados = React.useContext(GlobalObras);
     const persona = React.useContext(GlobalPerson);
-    const parametros = useParams()
 
+    // referencia para obter o valor da largura do elemento
+    const carroussel = React.useRef()
+    const [width, setwidth] = React.useState(0)
 
- 
+    // calculando a largura do scroll menos a largura total do carrossel
+    React.useEffect(() =>{
+        setwidth(carroussel.current?.scrollWidth - carroussel.current?.offsetWidth)
+    })
     dados.setItem(parametros.id)
 
     function handleClick(event){    
         event.preventDefault();
         setNota(event.target.innerText)
+    }
+
+    // enviando dados do formulário para o
+    function enviar(event){
+        event.preventDefault();
+        setCont(cont + 1)
+        setAbrir(false)
+        localStorage.setItem(cont,nome,nota,comentario)
+
     }
 
     if ((dados.dados != null)) {
@@ -91,7 +110,7 @@ const Obra = () => {
                         <div className='w-8 h-4 bg-orange-300 relative mt-10 md:w-16 md:h-6'>
                             <h2 className='text-lg md:text-3xl absolute bottom-[.5px]'>Descrição</h2>
                         </div>
-                        <p className='text-xs mt-5 w-72  md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
+                        <p className='text-sm mt-5 w-72  md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
                         <button onClick={handleOpen} className="adicionarComentario"><img src={adicionarComent} alt="Adiconar comenário"/> <p>Comentário</p></button>
                         <Modal
                         open={abrir}
@@ -128,7 +147,7 @@ const Obra = () => {
                                 <label htmlFor="comentario"></label>
                                 <input className="textForm" type="text" placeholder="Expresse sua opinião aqui" id="comentario" value={comentario} onChange={(event) => setComentario(event.target.value)} />
                                 <button className="botao-box">
-                                    <button className="botao-enviar" onClick={handleClick}>Enviar
+                                    <button className="botao-enviar" onClick={enviar}>Enviar
                                         <span className="seta-enviar"></span>
                                     </button>
 
@@ -143,7 +162,65 @@ const Obra = () => {
 
                     </div>
                 </div>
+{/* comentarios inseridos */}
+                <article className="box-titulo-coment">
+                    <img src={comentarios}/>
+                    <h2 className="titulo-coment">Comentarios</h2>
 
+                </article>
+
+                <motion.article className="box-coments"  
+                    ref={carroussel}
+                    whileTap={{ cursor : "grabbing"}} >
+
+                    <motion.article className="innerComensts"  
+                    drag="x" 
+                    dragConstraints={{right: 0, left: -width}}
+                    
+                    >
+                {/* map */}
+                    <motion.section className="comentario">
+                        <div className="nome-coment">
+                            <h4>Nome</h4>
+                            <div>5/5</div>
+                        </div>
+                    </motion.section>
+
+                    <motion.section className="comentario">
+                        <div className="nome-coment">
+                            <h4>Nome</h4>
+                            <div>5/5</div>
+                        </div>
+                        <section className="txt-coment">
+                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        </section>
+                    </motion.section>
+
+                    <motion.section className="comentario">
+                        <div className="nome-coment">
+                            <h4>Nome</h4>
+                            <div>5/5</div>
+                        </div>
+                        <section className="txt-coment">
+                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        </section>
+                      
+                    </motion.section>
+                    <motion.section className="comentario">
+                        <div className="nome-coment">
+                            <h4 >Nome</h4>
+                            <div>5/5</div>
+                        </div>
+
+                        <section className="txt-coment">
+                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        </section>
+                    </motion.section>
+
+                </motion.article>
+
+            </motion.article>
+           
             </main>
         )
 

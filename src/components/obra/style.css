@@ -1,8 +1,11 @@
 #obra{
     width: 80%;
+    object-fit: cover;
     height: 100%;
 }
-
+.corpo{
+    max-width: 90%;
+}
 .titulo-obra{
     color: #000 !important;
     font-size: 3rem !important;
@@ -310,10 +313,83 @@
         transform: initial;
     }
 }
+.box-titulo-coment{
+    margin-top: 3rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.titulo-coment{
+    position: relative;
+    font-size: 1.8rem;
+}
 
+.titulo-coment img{
+    max-width: 50%;
+}
 
+.titulo-coment::before{
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 22px;
+    width: 35%;
+    height: 30%;
+    z-index: -1;
+    background-color: #FFD390;
+}
 
+.coments{
+    cursor: grab;
+    overflow: hidden;
+    position: absolute;
+    background-color: #4E4E4E;
+    width: 85%;
+    height: 90%;
+    left: 50%;
+    top: 20px;
+    margin-bottom: 2rem;
+}
+.innerComensts{
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    justify-items: center;
+    margin-left: .8rem;
+}
+.comentario{
+  
+   width: 700px;
+    flex-direction: column;
+  
+    max-height: 100%;
+    padding: 1.5rem;
+    color: white;
+    background-color: #2F2F2F;
+    gap: 2rem;
+}
+.nome-coment{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+.nome-coment h4{
+    font-size: 2rem;
+}
+.nome-coment div{
+    justify-self: end;
+}
 
+.txt-coment{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.txt-coment p{
+    max-width: 100%;
+    word-break: break-all;
+    text-wrap:wrap;
+}
 body::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
   }
@@ -331,7 +407,7 @@ body::-webkit-scrollbar {
 
 
 .inner-modal::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 8px;               /* width of the entire scrollbar */
   }
   
   .inner-modal::-webkit-scrollbar-track {
@@ -351,5 +427,12 @@ body::-webkit-scrollbar {
 @keyframes animacao-titulo-obra{
     to{
         width: 95%;
+    }
+}
+
+
+@media(max-width: 930px){
+    .innerComensts{
+        flex-wrap: wrap;
     }
 }

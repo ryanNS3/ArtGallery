@@ -317,6 +317,7 @@
     margin-top: 8rem;
     display: flex;
     gap: 0.5rem;
+    margin-bottom: 3rem;
 }
 .titulo-coment{
     position: relative;
@@ -338,8 +339,15 @@
     background-color: #FFD390;
 }
 
+
+.section-coments{
+    max-width: 100%;
+    margin-bottom: 3rem;
+}
 .box-coments{
-    width: 100vw;
+    margin-left: 6rem;
+    width: 90vw;
+    overflow: hidden;
 }
 
 .coments{
@@ -347,7 +355,7 @@
     overflow: hidden;
     position: absolute;
     background-color: #4E4E4E;
-    width: 100%;
+    width: 80%;
     height: 90%;
     left: 50%;
     top: 20px;
@@ -357,28 +365,30 @@
     display: flex;
     gap: 3.5rem;
     justify-items: center;
-    margin-left: .8rem;
+    
 }
 .comentario{
-  
-    width: 700px;
+    display: flex;
+    position: relative;
     flex-direction: column;
-    overflow-y: scroll;
-    max-height: 300px;
-    padding: 1.5rem;
-    color: white;
+    min-height: 210px;
+    min-width: 350px;
     background-color: #2F2F2F;
-    gap: 2rem;
+    padding: 1rem;
+    color: white;
+    justify-self: center;
 }
 .nome-coment{
     display: grid;
     align-items: center;
+    margin-bottom: 2rem;
     grid-template-columns: 1fr 1fr;
 }
 .nome-coment h4{
     font-size: 2rem;
 }
 .nome-coment div{
+    display: flex;
     justify-self: end;
 }
 
@@ -423,7 +433,7 @@ body::-webkit-scrollbar {
   .comentario::-webkit-scrollbar-thumb {
     background-color: #646464; 
     border-radius: 20px;       
-    border-radius: 8px solid rgb(65, 65, 65);  /* creates padding around scroll thumb */
+    border-radius: 8px solid rgb(65, 65, 65); 
   }
 
 
@@ -460,5 +470,10 @@ body::-webkit-scrollbar {
     }
     .inner-modal{
         width: 100%;
+    }
+
+    .box-coments{
+        overflow: none;
+        margin-left: 2rem;
     }
 }

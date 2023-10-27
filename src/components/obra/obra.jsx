@@ -17,6 +17,7 @@ import { motion} from "framer-motion";
 import sair from "../../assets/sair.svg"
 import adicionarComent from "../../assets/adicionarComent.svg"
 import comentarios from "../../assets/comentarios.svg"
+import coracao from "../../assets/coracao.svg"
 // importando imgs
 import seta from "../../assets/seta.png"
 
@@ -47,23 +48,26 @@ const Obra = () => {
     React.useEffect(() =>{
         setwidth(carroussel.current?.scrollWidth - carroussel.current?.offsetWidth)
     })
-    dados.setItem(parametros.id)
 
+    // definindo os valores para fazer a requisção
+    dados.setItem(parametros.id)
+    
+    
     function handleClick(event){    
         event.preventDefault();
         setNota(event.target.innerText)
     }
-
+    
     // enviando dados do formulário para o
     function enviar(event){
-        event.preventDefault();
         setCont(cont + 1)
         setAbrir(false)
-        localStorage.setItem(cont,nome,nota,comentario)
-
+        localStorage.setItem(cont,[nome,nota,comentario])
+        console.log(event)
+        event.preventDefault();
     }
 
-    if ((dados.dados != null)) {
+    if ((dados.dados != null && persona.dados != null)) {
 
         let indice = '';
         dados.dados.map((item) => {
@@ -71,10 +75,10 @@ const Obra = () => {
                 indice = item;
             }
         })
-
-     
+        persona.setAutores(indice.fk_nomeArtista)
+        
         return (
-
+            
             <main className='corpo  animacaoEsquerda'>
                 <section className="grid md:grid-cols-3 mb-10 justify-between">
                     <Link to={"/"} aria-label="botão-voltar" className="button-home relative rounded-xl w-10 border-orange-300  justify-self-start self-center">
@@ -92,13 +96,13 @@ const Obra = () => {
                         </div>
                     </div>
 
-                    <div className='descricao  pt-5 items-center md:m-0 md:pt-10 md:px-5'>
+                    <div className='descricao mt-10 pt-5 items-center md:m-0 md:pt-10 md:px-5'>
 
                         <div className='flex items-center gap-8	flex-wrap sm:flex-nowrap'>
                             <div className='w-12 h-12 rounded-full bg-gray-500 relative md:w-16 md:h-16'>
                                 <img
                                     className='w-12 h-12 rounded-full justify-self-start absolute top-2 left-2 md:w-16 md:h-16'
-                                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx4PGyba3BR8tRfKdfHPoYo-2C6rPO8vWeTCMBo6TTfy02956e'
+                                    src={persona.dados.linkFoto}
                                     alt=''
                                 />
                             </div>
@@ -108,7 +112,7 @@ const Obra = () => {
                             <p className= 'border-2 border-orange-300 rounded-md p-2 text-md  self-center justify-self-end'>{indice.ano}</p>
                         </div>
                         <div className='w-8 h-4 bg-orange-300 relative mt-10 md:w-16 md:h-6'>
-                            <h2 className='text-lg text-3xl absolute bottom-[.5px]'>Descrição</h2>
+                            <h2 className='text-lg md:text-3xl absolute bottom-[.5px]'>Descrição</h2>
                         </div>
                         <p className='text-md mt-5 w-full md:h-80 md:text-base xl:text-xl p-4 descricao-obra'>{indice.descricao}</p>
                         <button onClick={handleOpen} className="adicionarComentario"><img src={adicionarComent} alt="Adiconar comenário"/> <p>Comentário</p></button>
@@ -135,7 +139,7 @@ const Obra = () => {
                                 <label className="labelForm" htmlFor="nome">Nome</label>
                                 <input className="inputForm" type="text" id="nome" value={nome} onChange={(event) => setNome(event.target.value)}  />
                                 
-                                <label className="labelForm" htmlFor="avaliacao">Avalição</label>
+                                <label className="labelForm" htmlFor="avaliacao">Avaliação</label>
                                 <section aria-label="selecione uma das cinco opções" id="avaliacao">
                                     <button className="botao-avaliacao av1" onClick={handleClick}>1</button>
                                     <button  className="botao-avaliacao av2" onClick={handleClick}>2</button>
@@ -146,8 +150,8 @@ const Obra = () => {
 
                                 <label htmlFor="comentario"></label>
                                 <input className="textForm" type="text" placeholder="Expresse sua opinião aqui" id="comentario" value={comentario} onChange={(event) => setComentario(event.target.value)} />
-                                <button className="botao-box">
-                                    <button className="botao-enviar" onClick={enviar}>Enviar
+                                <button className="botao-box" onClick={enviar}>
+                                    <button className="botao-enviar" >Enviar
                                         <span className="seta-enviar"></span>
                                     </button>
 
@@ -169,49 +173,79 @@ const Obra = () => {
 
                 </article>
 
-                <motion.article className="box-coments"  
-                    ref={carroussel}
-                    whileTap={{ cursor : "grabbing"}} >
+                <section className="section-coments">
 
-                    <motion.article className="innerComensts"  
-                    drag="x" 
-                    dragConstraints={{right: 0, left: -width}}
+                
+                    <motion.article className="box-coments"  
+                        ref={carroussel}
+                        whileTap={{ cursor : "grabbing"}} >
+
+                        <motion.article className="innerComensts"  
+                        drag="x" 
+                        dragConstraints={{right: 0, left: -width}}
+                        
+                        >
+                    {/* map */}
                     
-                    >
-                {/* map */}
-                    <motion.section className="comentario">
-                        <div className="nome-coment">
-                            <h4>Nome</h4>
-                            <div>5/5</div>
-                        </div>
-                    </motion.section>
+                        <motion.section className="comentario">
+                            <div className="nome-coment">
+                                <h4>Daniel</h4>
+                                <div><img src={coracao}/>5/5</div>
+                            </div>
+                            <section className="txt-coment">
+                                <p>Simplesmente amo essa obra, é a minha favorita!</p>
+                            </section>
+                        </motion.section>
 
-                    <motion.section className="comentario">
-                        <div className="nome-coment">
-                            <h4>Nome</h4>
-                            <div>5/5</div>
-                        </div>
-                        <section className="txt-coment">
-                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        </section>
-                    </motion.section>
+                        <motion.section className="comentario">
+                            <div className="nome-coment">
+                                <h4>Pedro</h4>
+                                <div> <img src={coracao}/> 5/5 </div>
+                            </div>
+                            <section className="txt-coment">
+                                <p>Essa obra é perfeita, com certeza é a minha favorita</p>
+                            </section>
+                        </motion.section>
 
-                    <motion.section className="comentario">
-                        <div className="nome-coment">
-                            <h4>Nome</h4>
-                            <div>5/5</div>
-                        </div>
-                        <section className="txt-coment">
-                            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        </section>
-                      
-                    </motion.section>
-                  
+                        <motion.section className="comentario">
+                            <div className="nome-coment">
+                                <h4>Lucas</h4>
+                                <div><img src={coracao}/> 5/5</div>
+                            </div>
+                            <section className="txt-coment">
+                                <p>Adoro as obras desse autor</p>
+                            </section>
+                        
+                        </motion.section>
+                    
+                        <motion.section className="comentario">
+                            <div className="nome-coment">
+                                <h4>Vitoria santos</h4>
+                                <div><img src={coracao}/> 5/5</div>
+                            </div>
+                            <section className="txt-coment">
+                                <p>Algumas obras são lindas e outras são perfeitas</p>
+                            </section>
+                        
+                        </motion.section>
+                    
+                        <motion.section className="comentario">
+                            <div className="nome-coment">
+                                <h4>Vitor hugo</h4>
+                                <div><img src={coracao}/> 3/5</div>
+                            </div>
+                            <section className="txt-coment">
+                                <p>Essa obra me deixa triste</p>
+                            </section>
+                        
+                        </motion.section>
+                    
+                    
+
+                    </motion.article>
 
                 </motion.article>
-
-            </motion.article>
-           
+            </section> 
             </main>
         )
 

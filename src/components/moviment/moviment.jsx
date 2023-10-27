@@ -108,7 +108,7 @@ export default function Moviment() {
                             <article className='descricao pt-5 items-center md:m-0  md:pt-10 md:px-5 ' >
 
                                 <div className='decorador-descri w-8 h-4 relative md:w-16 md:h-6'>
-                                    <h3 className='text-lg  mt-8 text-3xl absolute bottom-[.5px]'>Descrição</h3>
+                                    <h3 className='text-lg  mt-8 md:text-3xl absolute bottom-[.5px]'>Descrição</h3>
                                 </div>
 
                                 {/* text-xs mt-5 w-72 bg-orange-200 md:w-96 lg:w-full md:h-80 md:text-base xl:text-xl pl-6 pr-6 pt-3 pb-3  */}

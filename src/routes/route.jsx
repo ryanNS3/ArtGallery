@@ -19,11 +19,11 @@ const Rota = () =>{
             <Routes>
 
                 <Route path="obra/:id" element={
-                    <MovimentosProvider>
+                    <PersonProvider>
                         <ObrasProvider>
                             <Obra />
                         </ObrasProvider>
-                    </MovimentosProvider>
+                    </PersonProvider>
                 
                 }/>
 
